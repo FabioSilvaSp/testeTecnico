@@ -14,7 +14,7 @@ public class AnaliseService {
             return java.util.Collections.emptyMap();
         }
 
-        return Arrays.stream(frase.toLowerCase().split("\\s+"))
+        return Arrays.stream(frase.toLowerCase().split("[^\\p{L}]+"))
                 .filter(palavra -> !palavra.isEmpty())
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
